@@ -11,12 +11,12 @@ import (
 )
 
 const (
-	queryInsertUser             = "INSERT INTO users(first_name, last_name, email, date_created, status, password) VALUES(?, ?, ?, ?, ?, ?);"
-	queryGetUser                = "SELECT id, first_name, last_name, email, date_created, status FROM users WHERE id=?;"
-	queryUpdateUser             = "UPDATE users SET first_name=?, last_name=?, email=? WHERE id=?;"
-	queryDeleteUser             = "DELETE FROM users WHERE id=?;"
-	queryFindByStatus           = "SELECT id, first_name, last_name, email, date_created, status FROM users WHERE status=?;"
-	queryFindByEmailAndPassword = "SELECT id, first_name, last_name, email, date_created, status FROM users WHERE email=? AND password=? AND status=?"
+	queryInsertUser             = "INSERT INTO user(first_name, last_name, email, date_created, status, password) VALUES(?, ?, ?, ?, ?, ?);"
+	queryGetUser                = "SELECT id, first_name, last_name, email, date_created, status FROM user WHERE id=?;"
+	queryUpdateUser             = "UPDATE user SET first_name=?, last_name=?, email=? WHERE id=?;"
+	queryDeleteUser             = "DELETE FROM user WHERE id=?;"
+	queryFindByStatus           = "SELECT id, first_name, last_name, email, date_created, status FROM user WHERE status=?;"
+	queryFindByEmailAndPassword = "SELECT id, first_name, last_name, email, date_created, status FROM user WHERE email=? AND password=? AND status=?"
 )
 
 func (user *User) Get() rest_errors.RestErr {
@@ -94,14 +94,14 @@ func (user *User) Delete() rest_errors.RestErr {
 func (user *User) FindByStatus(status string) ([]User, rest_errors.RestErr) {
 	stmt, err := users_db.Client.Prepare(queryFindByStatus)
 	if err != nil {
-		logger.Error("error when trying to prepare find users by status statement", err)
+		logger.Error("error when trying to prepare find user by status statement", err)
 		return nil, rest_errors.NewInternalServerError("error when tying to get user", errors.New("database error"))
 	}
 	defer stmt.Close()
 
 	rows, err := stmt.Query(status)
 	if err != nil {
-		logger.Error("error when trying to find users by status", err)
+		logger.Error("error when trying to find user by status", err)
 		return nil, rest_errors.NewInternalServerError("error when tying to get user", errors.New("database error"))
 	}
 	defer rows.Close()
@@ -116,7 +116,7 @@ func (user *User) FindByStatus(status string) ([]User, rest_errors.RestErr) {
 		results = append(results, user)
 	}
 	if len(results) == 0 {
-		return nil, rest_errors.NewNotFoundError(fmt.Sprintf("no users matching status %s", status))
+		return nil, rest_errors.NewNotFoundError(fmt.Sprintf("no user matching status %s", status))
 	}
 	return results, nil
 }
