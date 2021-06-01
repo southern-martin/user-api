@@ -2,10 +2,8 @@ package service
 
 import (
 	"github.com/southern-martin/oauth-api/src/domain/user"
-	"github.com/southern-martin/oauth-api/src/domain/users"
-	"github.com/southern-martin/oauth-api/src/utils/crypto_utils"
+	"github.com/southern-martin/oauth-api/src/utils/crypto_util"
 	"github.com/southern-martin/user-api/domain/user"
-	"github.com/southern-martin/user-api/util/date_util"
 	"github.com/southern-martin/user-api/util/crypto_util"
 	"github.com/southern-martin/user-api/util/date_util"
 	"github.com/southern-martin/util-go/rest_error"

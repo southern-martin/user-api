@@ -2,8 +2,8 @@ package mysql_util
 
 import (
 	"errors"
-	"github.com/southern-martin/util-go/rest_error"
 	"github.com/go-sql-driver/mysql"
+	"github.com/southern-martin/util-go/rest_error"
 	"strings"
 )
 

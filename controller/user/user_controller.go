@@ -1,7 +1,7 @@
 package user
 
 import (
-	"github.com/southern-martin/oauth-api/src/domain/users
+	"github.com/southern-martin/oauth-api/src/domain/user
 	"github.com/southern-martin/oauth-go/oauth"
 	"github.com/southern-martin/user-api/domain/user"
 	"github.com/southern-martin/user-api/service"
