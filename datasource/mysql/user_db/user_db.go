@@ -3,26 +3,26 @@ package user_db
 import (
 	"database/sql"
 	"fmt"
-	"github.com/tannpv/bookstore_utils-go/logger"
+	"github.com/southern-martin/utils-go/logger"
 	"github.com/go-sql-driver/mysql"
 	"log"
 	"os"
 )
 
 const (
-	mysqlUsersUsername = "mysql_users_username"
-	mysqlUsersPassword = "mysql_users_password"
-	mysqlUsersHost     = "mysql_users_host"
-	mysqlUsersSchema   = "mysql_users_schema"
+	mysqlUserUsername = "mysql_users_username"
+	mysqlUserPassword = "mysql_users_password"
+	mysqlUserHost     = "mysql_users_host"
+	mysqlUserSchema   = "mysql_users_schema"
 )
 
 var (
 	Client *sql.DB
 
-	username = os.Getenv(mysqlUsersUsername)
-	password = os.Getenv(mysqlUsersPassword)
-	host     = os.Getenv(mysqlUsersHost)
-	schema   = os.Getenv(mysqlUsersSchema)
+	username = os.Getenv(mysqlUserUsername)
+	password = os.Getenv(mysqlUserPassword)
+	host     = os.Getenv(mysqlUserHost)
+	schema   = os.Getenv(mysqlUserSchema)
 )
 
 func init() {
