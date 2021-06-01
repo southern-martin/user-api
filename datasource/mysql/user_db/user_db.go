@@ -3,7 +3,7 @@ package user_db
 import (
 	"database/sql"
 	"fmt"
-	"github.com/southern-martin/utils-go/logger"
+	"github.com/southern-martin/util-go/logger"
 	"github.com/go-sql-driver/mysql"
 	"log"
 	"os"
