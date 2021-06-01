@@ -1,13 +1,13 @@
 package user
 
 import (
-	"github.com/southern-martin/user-api/datasource/mysql/user_db"
-	"fmt"
-	"strings"
-	"github.com/southern-martin/user-api/util/mysql_util"
-	"github.com/southern-martin/util-go/rest_error"
 	"errors"
+	"fmt"
+	"github.com/southern-martin/user-api/datasource/mysql/user_db"
+	"github.com/southern-martin/user-api/util/mysql_util"
 	"github.com/southern-martin/util-go/logger"
+	"github.com/southern-martin/util-go/rest_error"
+	"strings"
 )
 
 const (
@@ -132,7 +132,7 @@ func (user *User) FindByEmailAndPassword() rest_error.RestErr {
 	result := stmt.QueryRow(user.Email, user.Password, StatusActive)
 	if getErr := result.Scan(&user.Id, &user.FirstName, &user.LastName, &user.Email, &user.DateCreated, &user.Status); getErr != nil {
 		if strings.Contains(getErr.Error(), mysql_util.ErrorNoRows) {
-			return rest_errors.NewNotFoundError("invalid user credentials")
+			return rest_error.NewNotFoundError("invalid user credentials")
 		}
 		logger.Error("error when trying to get user by email and password", getErr)
 		return rest_error.NewInternalServerError("error when tying to find user", errors.New("database error"))

@@ -1,8 +1,6 @@
 package service
 
 import (
-	"github.com/southern-martin/oauth-api/src/domain/user"
-	"github.com/southern-martin/oauth-api/src/utils/crypto_util"
 	"github.com/southern-martin/user-api/domain/user"
 	"github.com/southern-martin/user-api/util/crypto_util"
 	"github.com/southern-martin/user-api/util/date_util"

@@ -1,12 +1,11 @@
 package user
 
 import (
-	"github.com/southern-martin/oauth-api/src/domain/user
+	"github.com/gin-gonic/gin"
 	"github.com/southern-martin/oauth-go/oauth"
 	"github.com/southern-martin/user-api/domain/user"
 	"github.com/southern-martin/user-api/service"
 	"github.com/southern-martin/util-go/rest_error"
-	"github.com/gin-gonic/gin"
 	"net/http"
 	"strconv"
 )
