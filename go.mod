@@ -1,6 +1,6 @@
 module github.com/southern-martin/user-api
 
-go 1.14
+go 1.15
 
 require (
 	//github.com/southern-martin/oauth-go v0.0.0-20191115215057-d6e9e471b4ef
